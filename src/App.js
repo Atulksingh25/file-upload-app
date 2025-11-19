@@ -1,6 +1,6 @@
    import React from 'react';
    
-import Portfolio from './Portfolio.js'
+import FileUploadPreview from './FileUploadPreviewjs'
 import './App.css'; // Assuming you have an App.css file for styling
   // Adjust the path as necessary
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <Portfolio />
+      <FileUploadPreview />
     </div>  
   );
 } 
