@@ -1,6 +1,6 @@
    import React from 'react';
    
-import ColorPalette from './ColorPalette.js'
+import EcomList from './EcomList.js'
 import './App.css'; // Assuming you have an App.css file for styling
   // Adjust the path as necessary
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <ColorPalette />
+      <EcomList />
     </div>  
   );
 } 
