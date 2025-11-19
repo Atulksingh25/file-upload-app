@@ -1,23 +1,38 @@
-import React from "react";
+// BlogApp.jsx
+import React, { useState } from "react";
 
-export default function Portfolio() {
+export default function BlogApp() {
+  const [posts, setPosts] = useState([
+    { id: 1, title: "Hello World", body: "This is the first post." },
+  ]);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const create = () => {
+    if (!title || !body) return;
+    setPosts((p) => [{ id: Date.now(), title, body }, ...p]);
+    setTitle(""); setBody("");
+  };
+
+  const del = (id) => setPosts((p) => p.filter((x) => x.id !== id));
+
   return (
-    <div style={{fontFamily:"sans-serif"}}>
-      <header style={{padding:20,background:"#222",color:"#fff"}}>
-        <h1>Your Name</h1>
-        <p>Frontend Developer — React | JS</p>
-      </header>
-      <section style={{padding:20}}>
-        <h2>Projects</h2>
-        <ul>
-          <li><a href="#">Project 1</a> - Short desc</li>
-          <li><a href="#">Project 2</a> - Short desc</li>
-        </ul>
-      </section>
-      <section style={{padding:20}}>
-        <h2>Contact</h2>
-        <p>Email: you@example.com</p>
-      </section>
+    <div style={{ padding: 20 }}>
+      <h2>Blog</h2>
+      <input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} /><br />
+      <textarea placeholder="Body" value={body} onChange={(e) => setBody(e.target.value)} />
+      <br />
+      <button onClick={create}>Create</button>
+
+      <div style={{ marginTop: 20 }}>
+        {posts.map((post) => (
+          <div key={post.id} style={{ border: "1px solid #ddd", padding: 10, marginBottom: 8 }}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+            <button onClick={() => del(post.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
