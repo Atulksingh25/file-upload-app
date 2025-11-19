@@ -1,6 +1,6 @@
    import React from 'react';
    
-import TempConverter from "./TempConverter.js"
+import Calculator from "./Calculator.js"
 import './App.css'; // Assuming you have an App.css file for styling
   // Adjust the path as necessary
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <TempConverter />
+      <Calculator />
     </div>  
   );
 } 
